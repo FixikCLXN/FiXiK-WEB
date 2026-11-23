@@ -7,7 +7,6 @@
 <title>FiXiK CLXN — Majestic RP</title>
 <meta name="description" content="FiXiK CLXN — клан Majestic RP, сервер Memphis.">
 <meta name="theme-color" content="#08090d">
-
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +18,7 @@
     --panel:#11131b;
     --purple:#8b5cf6;
     --purple-light:#b49aff;
+    --accent-ink:#ffffff;
     --white:#f5f5f7;
     --gray:#9293a0;
     --border:rgba(255,255,255,.08);
@@ -104,6 +104,7 @@ input,textarea {font-family:inherit}
 .nav-button {
     padding:12px 20px;
     background:var(--purple);
+    color:var(--accent-ink);
     border-radius:7px;
     font-size:12px;
     font-weight:700;
@@ -127,6 +128,7 @@ input,textarea {font-family:inherit}
 
 .settings-button:hover {
     background:var(--purple);
+    color:var(--accent-ink);
     transform:rotate(45deg);
 }
 
@@ -227,7 +229,10 @@ main {min-height:100vh}
     transition:.3s;
 }
 
-.button-primary {background:var(--purple)}
+.button-primary {
+    background:var(--purple);
+    color:var(--accent-ink);
+}
 
 .button-primary:hover {
     transform:translateY(-3px);
@@ -447,7 +452,7 @@ section.content-section {
 }
 
 .timeline-card.current .timeline-badge {
-    color:white;
+    color:var(--accent-ink);
     background:var(--purple);
 }
 
@@ -654,6 +659,47 @@ section.content-section {
     margin-top:14px;
 }
 
+/* APPLICATION CRITERIA */
+
+.criteria-box {
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:15px 16px;
+    margin:18px 0 20px;
+}
+
+.criteria-title {
+    font-family:'Orbitron',sans-serif;
+    font-size:11px;
+    letter-spacing:1px;
+    color:var(--purple-light);
+    margin-bottom:10px;
+}
+
+.criteria-row {
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,.055);
+    font-size:12px;
+}
+
+.criteria-row:last-child {border-bottom:0}
+.criteria-row span {color:var(--gray)}
+.criteria-row strong {color:#e9e9ef;text-align:right}
+
+.form-error {
+    display:none;
+    color:#f87171;
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.form-error.active {display:block}
+
 /* SETTINGS */
 
 .settings-panel {
@@ -818,6 +864,8 @@ footer p {
 
     .staff-card h3 {font-size:16px}
     .empty-status {padding:0 22px 25px}
+    .criteria-row {align-items:flex-start}
+    .criteria-row strong {max-width:60%}
 }
 </style>
 </head>
@@ -838,7 +886,6 @@ footer p {
         <button class="tab-btn" data-tab="about" onclick="openTab('about')">О клане</button>
         <button class="tab-btn" data-tab="history" onclick="openTab('history')">Наш путь</button>
         <button class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
-        <button class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
         <button class="tab-btn" onclick="openAccount()">АККАУНТ</button>
         <button class="settings-button" onclick="toggleSettings()" title="Настройки">⚙</button>
     </div>
@@ -1164,10 +1211,37 @@ footer p {
         <h3>Вступить в FiXiK</h3>
         <p>Заполни заявку, если хочешь присоединиться к нашему клану.</p>
 
+        <div class="criteria-box">
+            <div class="criteria-title">КРИТЕРИИ ВСТУПЛЕНИЯ</div>
+            <div class="criteria-row">
+                <span>Возраст</span>
+                <strong>От 14 лет</strong>
+            </div>
+            <div class="criteria-row">
+                <span>Discord</span>
+                <strong>Обязательно</strong>
+            </div>
+            <div class="criteria-row">
+                <span>Откаты с ангара</span>
+                <strong>От 8 человек · 5 минут</strong>
+            </div>
+            <div class="criteria-row">
+                <span>Оружие</span>
+                <strong>Спешик + сайга</strong>
+            </div>
+        </div>
+
         <form id="applicationForm" onsubmit="submitApplication(event)">
 
             <div class="form-group">
-                <input type="text" id="nickname" placeholder="Твой игровой ник" maxlength="40" required>
+                <input
+                    type="text"
+                    id="nickname"
+                    placeholder="Игровой ник (например, Valera Fixik)"
+                    maxlength="40"
+                    autocomplete="off"
+                    required
+                >
             </div>
 
             <div class="form-group">
@@ -1176,28 +1250,49 @@ footer p {
                     id="age"
                     placeholder="Возраст"
                     inputmode="numeric"
-                    pattern="[0-9]{1,2}"
                     maxlength="2"
                     required
-                    oninput="this.value=this.value.replace(/[^0-9]/g,'')"
                 >
             </div>
 
             <div class="form-group">
-                <input type="text" id="discordName" placeholder="Твой Discord (например, username)" maxlength="60" required>
+                <input
+                    type="text"
+                    id="discordName"
+                    placeholder="Твой Discord (username)"
+                    maxlength="60"
+                    required
+                >
             </div>
 
             <div class="form-group">
-                <textarea id="about" placeholder="Расскажи немного о себе" rows="5" maxlength="1000" required></textarea>
+                <input
+                    type="url"
+                    id="recording"
+                    placeholder="Ссылка на откат с ангара (если есть)"
+                    maxlength="500"
+                >
             </div>
+
+            <div class="form-group">
+                <textarea
+                    id="about"
+                    placeholder="Расскажи немного о себе"
+                    rows="5"
+                    maxlength="1000"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-error" id="formError"></div>
 
             <button type="submit" class="button-primary" style="width:100%;">
                 ПОДАТЬ ЗАЯВКУ
             </button>
 
             <div class="form-note">
-                После подготовки заявки откроется ваш Discord.
-                Автоматическая доставка будет подключена через сервер.
+                После подготовки заявки откроется Discord.
+                Заявка пока сохраняется в браузере и копируется для отправки.
             </div>
 
         </form>
@@ -1275,19 +1370,12 @@ footer p {
     <div class="color-options">
 
         <button class="color-option" style="background:#8b5cf6" onclick="setTheme('#8b5cf6','#b49aff')" title="Фиолетовый"></button>
-
         <button class="color-option" style="background:#3b82f6" onclick="setTheme('#3b82f6','#93c5fd')" title="Синий"></button>
-
         <button class="color-option" style="background:#ef4444" onclick="setTheme('#ef4444','#fca5a5')" title="Красный"></button>
-
         <button class="color-option" style="background:#10b981" onclick="setTheme('#10b981','#6ee7b7')" title="Зелёный"></button>
-
         <button class="color-option" style="background:#ec4899" onclick="setTheme('#ec4899','#f9a8d4')" title="Розовый"></button>
-
         <button class="color-option" style="background:#f59e0b" onclick="setTheme('#f59e0b','#fcd34d')" title="Оранжевый"></button>
-
         <button class="color-option" style="background:#06b6d4" onclick="setTheme('#06b6d4','#67e8f9')" title="Бирюзовый"></button>
-
         <button class="color-option" style="background:#ffffff" onclick="setTheme('#ffffff','#dddddd')" title="Белый"></button>
 
     </div>
@@ -1387,6 +1475,13 @@ function setTheme(primary,light) {
     document.documentElement.style.setProperty('--purple',primary);
     document.documentElement.style.setProperty('--purple-light',light);
 
+    const isWhite = primary.toLowerCase() === '#ffffff';
+
+    document.documentElement.style.setProperty(
+        '--accent-ink',
+        isWhite ? '#08090d' : '#ffffff'
+    );
+
     localStorage.setItem('fixikTheme',JSON.stringify({
         primary:primary,
         light:light
@@ -1414,6 +1509,19 @@ function loadTheme() {
     }
 }
 
+/* APPLICATION INPUT VALIDATION */
+
+document.getElementById('nickname').addEventListener('input',function() {
+    this.value = this.value
+        .replace(/[^A-Za-z ]/g,'')
+        .replace(/\s{2,}/g,' ')
+        .replace(/^\s+/,'');
+});
+
+document.getElementById('age').addEventListener('input',function() {
+    this.value = this.value.replace(/[^0-9]/g,'').slice(0,2);
+});
+
 /* APPLICATION */
 
 function submitApplication(event) {
@@ -1422,15 +1530,30 @@ function submitApplication(event) {
     const nickname=document.getElementById('nickname').value.trim();
     const age=document.getElementById('age').value.trim();
     const discordName=document.getElementById('discordName').value.trim();
+    const recording=document.getElementById('recording').value.trim();
     const about=document.getElementById('about').value.trim();
 
-    if (!nickname || !age || !discordName || !about) {
-        alert('Заполни все поля!');
+    const error=document.getElementById('formError');
+    error.classList.remove('active');
+    error.textContent='';
+
+    function showError(message) {
+        error.textContent=message;
+        error.classList.add('active');
+    }
+
+    if (!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(nickname)) {
+        showError('Ник должен содержать только английские буквы и пробелы. Пример: Valera Fixik.');
         return;
     }
 
     if (!/^\d{1,2}$/.test(age) || Number(age)<14 || Number(age)>99) {
-        alert('Возраст должен быть числом от 14 до 99!');
+        showError('Возраст должен быть числом от 14 до 99!');
+        return;
+    }
+
+    if (!discordName || !about) {
+        showError('Заполни все обязательные поля!');
         return;
     }
 
@@ -1438,57 +1561,63 @@ function submitApplication(event) {
         nickname:nickname,
         age:Number(age),
         discord:discordName,
+        recording:recording,
         about:about,
         date:new Date().toLocaleString('ru-RU'),
         status:'Ожидает рассмотрения'
     };
 
-    const applications=JSON.parse(
-        localStorage.getItem('fixikApplications') || '[]'
-    );
+    let applications=[];
 
-    applications.push(application);
+    try {
+        applications=JSON.parse(
+            localStorage.getItem('fixikApplications') || '[]'
+        );
 
-    localStorage.setItem(
-        'fixikApplications',
-        JSON.stringify(applications)
-    );
+        applications.push(application);
+
+        localStorage.setItem(
+            'fixikApplications',
+            JSON.stringify(applications)
+        );
+    } catch(e) {
+        showError('Не удалось сохранить заявку в браузере.');
+        return;
+    }
 
     const discordMessage=
         'НОВАЯ ЗАЯВКА — FiXiK CLXN\n\n'+
         'Игровой ник: '+nickname+'\n'+
         'Возраст: '+age+'\n'+
         'Discord: '+discordName+'\n'+
+        'Откат с ангара: '+(recording || 'Не указан')+'\n'+
         'О себе: '+about+'\n'+
         'Дата: '+application.date;
 
-    if (navigator.clipboard && window.isSecureContext) {
+    function openDiscord() {
+        window.open(
+            'https://discord.gg/qPfAcGb9Z4',
+            '_blank',
+            'noopener'
+        );
+    }
 
+    if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(discordMessage)
         .then(function() {
-
-            alert(
-                'Заявка подготовлена!\n\n'+
-                'Текст скопирован. Теперь вставь его в Discord.'
-            );
-
-            window.open(
-                'https://discord.gg/qPfAcGb9Z4',
-                '_blank'
-            );
-
+            alert('Заявка скопирована! Отправь её в Discord.');
+            openDiscord();
         })
         .catch(function() {
-            alert('Не удалось скопировать заявку.');
+            alert('Заявка сохранена, но скопировать её не удалось.');
+            openDiscord();
         });
-
     } else {
-
         alert(
-            'Заявка сохранена локально в браузере.\n\n'+
-            'Автоматическая отправка будет доступна после подключения сервера.'
+            'Заявка сохранена в браузере.\n\n'+
+            'Автоматическая отправка пока не подключена.'
         );
-
+        openDiscord();
     }
 
     document.getElementById('applicationForm').reset();
