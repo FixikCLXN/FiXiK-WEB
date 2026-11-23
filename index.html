@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FiXiK CLXN — Majestic RP</title>
-<meta name="description" content="FiXiK CLXN — клан на Majestic RP, сервер Memphis.">
+<meta name="description" content="FiXiK CLXN — клан Majestic RP, сервер Memphis.">
 <meta name="theme-color" content="#08090d">
 
 <link rel="icon" href="logo.png" type="image/png">
@@ -15,809 +15,819 @@
 
 <style>
 :root {
-    --bg: #08090d;
-    --panel: #11131b;
-    --purple: #8b5cf6;
-    --purple-light: #b49aff;
-    --white: #f5f5f7;
-    --gray: #9293a0;
-    --border: rgba(255,255,255,.08);
+    --bg:#08090d;
+    --panel:#11131b;
+    --purple:#8b5cf6;
+    --purple-light:#b49aff;
+    --white:#f5f5f7;
+    --gray:#9293a0;
+    --border:rgba(255,255,255,.08);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html { scroll-behavior: smooth; }
-
+* {margin:0;padding:0;box-sizing:border-box}
+html {scroll-behavior:smooth}
 body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
+    background:var(--bg);
+    color:var(--white);
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
 }
-
-a { text-decoration: none; color: inherit; }
-button { font-family: inherit; border: none; cursor: pointer; color: inherit; }
+a {text-decoration:none;color:inherit}
+button {font-family:inherit;border:none;cursor:pointer;color:inherit}
+input,textarea {font-family:inherit}
 
 /* NAVIGATION */
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8%;
-    z-index: 1000;
-    background: rgba(8,9,13,.82);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 8%;
+    z-index:1000;
+    background:rgba(8,9,13,.88);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
 }
 
 .logo-icon {
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    object-fit: contain;
-    background: #11131b;
-    box-shadow: 0 0 25px rgba(139,92,246,.25);
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    object-fit:contain;
+    background:#11131b;
+    box-shadow:0 0 25px rgba(139,92,246,.25);
 }
 
 .logo-text {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    letter-spacing:2px;
 }
 
 .nav-links {
-    display: flex;
-    gap: 28px;
-    align-items: center;
+    display:flex;
+    gap:25px;
+    align-items:center;
 }
 
 .tab-btn {
-    position: relative;
-    background: transparent;
-    color: #a7a7b3;
-    font-size: 13px;
-    padding: 8px 0;
-    transition: .3s;
+    position:relative;
+    background:transparent;
+    color:#a7a7b3;
+    font-size:13px;
+    padding:8px 0;
+    transition:.3s;
 }
 
-.tab-btn:hover,
-.tab-btn.active { color: #fff; }
+.tab-btn:hover,.tab-btn.active {color:white}
 
 .tab-btn.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--purple);
+    content:"";
+    position:absolute;
+    bottom:0;left:0;
+    width:100%;height:2px;
+    background:var(--purple);
 }
 
 .nav-button {
-    padding: 12px 20px;
-    background: var(--purple);
-    border-radius: 7px;
-    font-size: 12px;
-    font-weight: 700;
-    transition: .3s;
+    padding:12px 20px;
+    background:var(--purple);
+    border-radius:7px;
+    font-size:12px;
+    font-weight:700;
+    transition:.3s;
 }
 
 .nav-button:hover {
-    background: #a078ff;
-    box-shadow: 0 0 25px rgba(139,92,246,.3);
+    background:var(--purple-light);
+    box-shadow:0 0 25px rgba(139,92,246,.3);
+}
+
+.settings-button {
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    background:rgba(255,255,255,.06);
+    color:white;
+    font-size:22px;
+    transition:.3s;
+}
+
+.settings-button:hover {
+    background:var(--purple);
+    transform:rotate(45deg);
 }
 
 /* PAGE SYSTEM */
 
-main { min-height: 100vh; }
-.tab-page { display: none; }
-.tab-page.active { display: block; }
+main {min-height:100vh}
+.tab-page {display:none}
+.tab-page.active {display:block}
 
 /* HOME */
 
 .hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 120px 10% 90px;
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:120px 10% 90px;
     background:
-        linear-gradient(90deg, rgba(8,9,13,.98) 0%, rgba(8,9,13,.82) 45%, rgba(8,9,13,.55) 100%),
-        linear-gradient(0deg, #08090d 0%, transparent 40%),
+        linear-gradient(90deg,rgba(8,9,13,.98) 0%,rgba(8,9,13,.82) 45%,rgba(8,9,13,.55) 100%),
+        linear-gradient(0deg,#08090d 0%,transparent 40%),
         url('logo.png');
-    background-size: cover, cover, 72%;
-    background-repeat: no-repeat;
-    background-position: center, center, right center;
+    background-size:cover,cover,72%;
+    background-repeat:no-repeat;
+    background-position:center,center,right center;
 }
 
 .hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 75% 50%, rgba(124,58,237,.14), transparent 38%);
-    pointer-events: none;
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 75% 50%,rgba(124,58,237,.14),transparent 38%);
+    pointer-events:none;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 750px;
+    position:relative;
+    z-index:2;
+    max-width:750px;
 }
 
 .label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(167,139,250,.3);
-    padding: 9px 14px;
-    color: var(--purple-light);
-    font-size: 10px;
-    letter-spacing: 3px;
-    border-radius: 4px;
-    margin-bottom: 25px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid rgba(167,139,250,.3);
+    padding:9px 14px;
+    color:var(--purple-light);
+    font-size:10px;
+    letter-spacing:3px;
+    border-radius:4px;
+    margin-bottom:25px;
 }
 
 .label-dot {
-    width: 7px;
-    height: 7px;
-    background: #a78bfa;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #a78bfa;
+    width:7px;height:7px;
+    background:var(--purple-light);
+    border-radius:50%;
+    box-shadow:0 0 10px var(--purple-light);
 }
 
 .hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(48px, 8vw, 100px);
-    line-height: 1.08;
-    font-weight: 800;
-    letter-spacing: -3px;
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(48px,8vw,100px);
+    line-height:1.08;
+    font-weight:800;
+    letter-spacing:-3px;
 }
 
 .hero h1 span {
-    color: var(--purple-light);
-    text-shadow: 0 0 45px rgba(139,92,246,.3);
+    color:var(--purple-light);
+    text-shadow:0 0 45px rgba(139,92,246,.3);
 }
 
 .hero-description {
-    color: #a7a7b3;
-    font-size: 15px;
-    line-height: 1.8;
-    max-width: 510px;
-    margin-top: 24px;
+    color:#a7a7b3;
+    font-size:15px;
+    line-height:1.8;
+    max-width:510px;
+    margin-top:24px;
 }
 
 .hero-buttons {
-    display: flex;
-    gap: 14px;
-    margin-top: 35px;
-    flex-wrap: wrap;
+    display:flex;
+    gap:14px;
+    margin-top:35px;
+    flex-wrap:wrap;
 }
 
-.button-primary,
-.button-secondary {
-    padding: 16px 25px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: .3s;
+.button-primary,.button-secondary {
+    padding:16px 25px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
 }
 
-.button-primary { background: var(--purple); }
+.button-primary {background:var(--purple)}
 
 .button-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(139,92,246,.3);
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(139,92,246,.3);
 }
 
 .button-secondary {
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.03);
 }
 
-.button-secondary:hover { background: rgba(255,255,255,.08); }
+.button-secondary:hover {background:rgba(255,255,255,.08)}
 
 .stats {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: start;
-    column-gap: 50px;
-    max-width: 650px;
-    margin-top: 65px;
-    border-top: 1px solid var(--border);
-    padding-top: 25px;
+    display:grid;
+    grid-template-columns:repeat(3,auto);
+    justify-content:start;
+    column-gap:50px;
+    max-width:650px;
+    margin-top:65px;
+    border-top:1px solid var(--border);
+    padding-top:25px;
 }
 
 .stat h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 25px;
+    font-family:'Orbitron',sans-serif;
+    font-size:25px;
 }
 
 .stat p {
-    color: var(--gray);
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 8px;
+    color:var(--gray);
+    font-size:10px;
+    letter-spacing:2px;
+    margin-top:8px;
 }
 
 /* GENERAL SECTIONS */
 
 section.content-section {
-    padding: 135px 10% 90px;
-    min-height: 100vh;
+    padding:135px 10% 90px;
+    min-height:100vh;
 }
 
-.section-heading { margin-bottom: 55px; }
+.section-heading {margin-bottom:55px}
 
 .section-tag {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--purple-light);
-    margin-bottom: 15px;
+    font-size:10px;
+    letter-spacing:4px;
+    color:var(--purple-light);
+    margin-bottom:15px;
 }
 
 .section-heading h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(30px, 4vw, 48px);
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(30px,4vw,48px);
 }
 
 .section-heading p {
-    color: var(--gray);
-    margin-top: 15px;
-    line-height: 1.8;
-    max-width: 600px;
+    color:var(--gray);
+    margin-top:15px;
+    line-height:1.8;
+    max-width:600px;
 }
 
-/* ABOUT + QUOTES */
+/* ABOUT */
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
 .about-card {
-    padding: 35px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: .3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-card::after {
-    content: "";
-    position: absolute;
-    width: 130px;
-    height: 130px;
-    right: -50px;
-    bottom: -60px;
-    background: var(--purple);
-    opacity: .06;
-    filter: blur(45px);
-    border-radius: 50%;
+    padding:35px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
 }
 
 .about-card:hover {
-    border-color: rgba(167,139,250,.35);
-    transform: translateY(-5px);
+    border-color:rgba(167,139,250,.35);
+    transform:translateY(-5px);
 }
 
 .about-card .icon {
-    font-size: 25px;
-    margin-bottom: 20px;
+    font-size:25px;
+    margin-bottom:20px;
 }
 
 .about-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 17px;
-    margin-bottom: 13px;
+    font-family:'Orbitron',sans-serif;
+    font-size:17px;
+    margin-bottom:13px;
 }
 
 .about-card p {
-    color: var(--gray);
-    line-height: 1.8;
-    font-size: 13px;
+    color:var(--gray);
+    line-height:1.8;
+    font-size:13px;
 }
 
 /* TIMELINE */
 
 .timeline {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 10px 0;
+    position:relative;
+    max-width:1000px;
+    margin:0 auto;
+    padding:10px 0;
 }
 
 .timeline::before {
-    content: "";
-    position: absolute;
-    left: 31px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(139,92,246,.65) 5%,
-        rgba(139,92,246,.3) 90%,
-        transparent
-    );
+    content:"";
+    position:absolute;
+    left:31px;
+    top:0;bottom:0;
+    width:2px;
+    background:linear-gradient(to bottom,transparent,rgba(139,92,246,.65) 5%,rgba(139,92,246,.3) 90%,transparent);
 }
 
 .timeline-item {
-    position: relative;
-    padding-left: 90px;
-    margin-bottom: 30px;
+    position:relative;
+    padding-left:90px;
+    margin-bottom:30px;
 }
 
-.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item:last-child {margin-bottom:0}
 
 .timeline-marker {
-    position: absolute;
-    left: 13px;
-    top: 30px;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #171321;
-    border: 2px solid var(--purple);
-    color: var(--purple-light);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    z-index: 2;
-    box-shadow: 0 0 22px rgba(139,92,246,.22);
+    position:absolute;
+    left:13px;top:30px;
+    width:38px;height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#171321;
+    border:2px solid var(--purple);
+    color:var(--purple-light);
+    font-family:'Orbitron',sans-serif;
+    font-size:10px;
+    font-weight:700;
+    z-index:2;
+    box-shadow:0 0 22px rgba(139,92,246,.22);
 }
 
 .timeline-card {
-    position: relative;
-    padding: 28px 32px;
-    background: linear-gradient(120deg, #13141e, #101117);
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    overflow: hidden;
-    transition: .3s;
-}
-
-.timeline-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--purple);
-    opacity: .5;
-    transition: .3s;
+    position:relative;
+    padding:28px 32px;
+    background:linear-gradient(120deg,#13141e,#101117);
+    border:1px solid var(--border);
+    border-radius:13px;
+    overflow:hidden;
+    transition:.3s;
 }
 
 .timeline-card:hover {
-    transform: translateX(5px);
-    border-color: rgba(139,92,246,.45);
-    box-shadow: 0 15px 45px rgba(0,0,0,.2);
+    transform:translateX(5px);
+    border-color:rgba(139,92,246,.45);
 }
 
-.timeline-card:hover::after { opacity: 1; }
+.timeline-card::after {
+    content:"";
+    position:absolute;
+    top:0;right:0;
+    width:3px;height:100%;
+    background:var(--purple);
+    opacity:.5;
+}
 
 .timeline-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
 }
 
 .timeline-badge {
-    display: inline-block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 10px;
-    color: var(--purple-light);
-    background: rgba(139,92,246,.12);
-    border: 1px solid rgba(139,92,246,.2);
-    padding: 7px 11px;
-    border-radius: 4px;
-    letter-spacing: 1px;
+    display:inline-block;
+    font-family:'Orbitron',sans-serif;
+    font-size:10px;
+    color:var(--purple-light);
+    background:rgba(139,92,246,.12);
+    border:1px solid rgba(139,92,246,.2);
+    padding:7px 11px;
+    border-radius:4px;
+    letter-spacing:1px;
 }
 
 .timeline-server {
-    color: #9293a0;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    color:var(--gray);
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
 .timeline-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(17px, 2.5vw, 23px);
-    margin-bottom: 12px;
-    letter-spacing: .5px;
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(17px,2.5vw,23px);
+    margin-bottom:12px;
 }
 
 .timeline-card p {
-    color: var(--gray);
-    font-size: 13px;
-    line-height: 1.9;
-    max-width: 760px;
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.9;
+    max-width:760px;
 }
 
 .timeline-card.current {
-    background: linear-gradient(120deg, rgba(65,39,110,.25), #11131b 70%);
-    border-color: rgba(139,92,246,.35);
+    background:linear-gradient(120deg,rgba(65,39,110,.25),#11131b 70%);
+    border-color:rgba(139,92,246,.35);
 }
 
 .timeline-card.current .timeline-badge {
-    color: #fff;
-    background: var(--purple);
+    color:white;
+    background:var(--purple);
 }
 
 /* STAFF */
 
 .staff-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    align-items: start;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    align-items:start;
 }
 
 .staff-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform .3s, border-color .3s, box-shadow .3s;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+    transition:.3s;
 }
 
 .staff-card:not(.empty-card):hover {
-    border-color: rgba(139,92,246,.5);
-    box-shadow: 0 15px 50px rgba(0,0,0,.3);
+    border-color:rgba(139,92,246,.5);
+    box-shadow:0 15px 50px rgba(0,0,0,.3);
 }
 
 .staff-card-header {
-    width: 100%;
-    padding: 35px 30px;
-    background: transparent;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.staff-card:not(.empty-card) .staff-card-header:hover {
-    background: rgba(255,255,255,.025);
+    width:100%;
+    padding:35px 30px;
+    background:transparent;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .staff-info {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .staff-number {
-    width: 58px;
-    height: 58px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: rgba(139,92,246,.12);
-    border: 1px solid rgba(139,92,246,.25);
-    color: var(--purple-light);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
+    width:58px;height:58px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:rgba(139,92,246,.12);
+    border:1px solid rgba(139,92,246,.25);
+    color:var(--purple-light);
+    font-family:'Orbitron',sans-serif;
+    font-size:14px;
+    font-weight:700;
 }
 
 .staff-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 19px;
-    margin-bottom: 6px;
+    font-family:'Orbitron',sans-serif;
+    font-size:19px;
+    margin-bottom:6px;
 }
 
 .staff-role-description {
-    color: var(--gray);
-    font-size: 12px;
+    color:var(--gray);
+    font-size:12px;
 }
 
 .staff-arrow {
-    color: var(--purple-light);
-    font-size: 22px;
-    transition: transform .3s;
+    color:var(--purple-light);
+    font-size:22px;
+    transition:transform .3s;
 }
 
-.staff-card.open .staff-arrow { transform: rotate(180deg); }
+.staff-card.open .staff-arrow {transform:rotate(180deg)}
 
 .staff-members {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height .45s ease, opacity .3s ease, padding .3s ease;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .45s ease,opacity .3s ease,padding .3s ease;
 }
 
 .staff-card.open .staff-members {
-    max-height: 500px;
-    opacity: 1;
-    padding: 0 30px 25px;
+    max-height:500px;
+    opacity:1;
+    padding:0 30px 25px;
 }
 
 .member {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 15px;
-    margin-top: 8px;
-    background: rgba(255,255,255,.025);
-    border: 1px solid rgba(255,255,255,.06);
-    border-radius: 8px;
-    color: #d7d7df;
-    font-size: 13px;
-    transition: .2s;
-}
-
-.member:hover {
-    border-color: rgba(139,92,246,.3);
-    background: rgba(139,92,246,.07);
-    transform: translateX(4px);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 15px;
+    margin-top:8px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:8px;
+    color:#d7d7df;
+    font-size:13px;
 }
 
 .member-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--purple);
-    box-shadow: 0 0 8px var(--purple);
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--purple);
+    box-shadow:0 0 8px var(--purple);
 }
-
-/* EMPTY DEPUTY CARD */
 
 .empty-card {
-    border-style: dashed;
-    border-color: rgba(255,255,255,.09);
-    cursor: default;
+    border-style:dashed;
+    border-color:rgba(255,255,255,.09);
+    cursor:default;
 }
 
-.empty-card .staff-card-header {
-    cursor: default;
-}
-
-.empty-card .staff-card-header:hover {
-    background: transparent;
-}
-
+.empty-card .staff-card-header {cursor:default}
 .empty-card .staff-number {
-    background: rgba(255,255,255,.035);
-    border-color: rgba(255,255,255,.08);
-    color: #777987;
+    background:rgba(255,255,255,.035);
+    border-color:rgba(255,255,255,.08);
+    color:#777987;
+}
+.empty-card .staff-role-description {color:#777987}
+.empty-card .staff-arrow {display:none}
+
+.empty-status {
+    color:#777987;
+    font-size:12px;
+    padding:0 30px 30px;
 }
 
-.empty-card .staff-role-description { color: #777987; }
-.empty-card .staff-arrow { display: none; }
-
-.empty-card .empty-status {
-    color: #777987;
-    font-size: 12px;
-    padding: 0 30px 30px;
-}
-
-/* MODAL */
+/* MODALS */
 
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(8,9,13,.85);
-    backdrop-filter: blur(10px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 20px;
+    position:fixed;
+    inset:0;
+    background:rgba(8,9,13,.85);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:20px;
 }
 
-.modal-overlay.active { display: flex; }
+.modal-overlay.active {display:flex}
 
 .modal-box {
-    background: var(--panel);
-    border: 1px solid rgba(139,92,246,.3);
-    border-radius: 14px;
-    padding: 35px;
-    max-width: 440px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 20px 80px rgba(0,0,0,.5);
+    background:var(--panel);
+    border:1px solid rgba(139,92,246,.3);
+    border-radius:14px;
+    padding:35px;
+    max-width:460px;
+    width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    position:relative;
+    box-shadow:0 20px 80px rgba(0,0,0,.5);
 }
 
 .modal-close {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    background: transparent;
-    color: var(--gray);
-    font-size: 25px;
-    transition: .2s;
+    position:absolute;
+    top:18px;right:20px;
+    background:transparent;
+    color:var(--gray);
+    font-size:25px;
 }
 
-.modal-close:hover { color: white; }
-
 .modal-box h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-family:'Orbitron',sans-serif;
+    font-size:20px;
+    margin-bottom:8px;
 }
 
 .modal-box p {
-    color: var(--gray);
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    color:var(--gray);
+    font-size:13px;
+    margin-bottom:20px;
+    line-height:1.6;
 }
 
-.form-group { margin-bottom: 15px; }
+.form-group {margin-bottom:15px}
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 14px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--white);
-    font-size: 13px;
-    outline: none;
-    resize: vertical;
-    font-family: 'DM Sans', sans-serif;
+.form-group input,.form-group textarea {
+    width:100%;
+    padding:13px 14px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:6px;
+    color:var(--white);
+    font-size:13px;
+    outline:none;
+    resize:vertical;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--purple);
-    box-shadow: 0 0 0 2px rgba(139,92,246,.1);
+.form-group input:focus,.form-group textarea:focus {
+    border-color:var(--purple);
+    box-shadow:0 0 0 2px rgba(139,92,246,.1);
+}
+
+.form-note {
+    color:var(--gray);
+    font-size:11px;
+    line-height:1.6;
+    margin-top:14px;
+}
+
+/* SETTINGS */
+
+.settings-panel {
+    position:fixed;
+    top:90px;
+    right:25px;
+    width:290px;
+    padding:25px;
+    background:#11131b;
+    border:1px solid var(--border);
+    border-radius:14px;
+    z-index:3000;
+    box-shadow:0 15px 60px #0009;
+    display:none;
+}
+
+.settings-panel.active {display:block}
+
+.settings-panel h3 {
+    font-family:'Orbitron',sans-serif;
+    font-size:16px;
+    margin-bottom:12px;
+}
+
+.color-options {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:15px;
+}
+
+.color-option {
+    width:42px;height:42px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,.15);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.color-option:hover {
+    transform:scale(1.12);
+    border-color:white;
+}
+
+.settings-caption {
+    font-size:11px;
+    color:var(--gray);
+    margin-top:15px;
+    line-height:1.6;
+}
+
+.settings-reset {
+    margin-top:15px;
+    background:rgba(255,255,255,.07);
+    padding:10px;
+    width:100%;
+    border-radius:6px;
+    font-size:11px;
 }
 
 /* FOOTER */
 
 footer {
-    padding: 35px 10%;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    padding:35px 10%;
+    border-top:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 footer p {
-    color: var(--gray);
-    font-size: 11px;
+    color:var(--gray);
+    font-size:11px;
 }
 
 .footer-logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-family:'Orbitron',sans-serif;
+    font-size:13px;
+    letter-spacing:2px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 900px) {
+@media(max-width:900px) {
     .navbar {
-        min-height: auto;
-        flex-wrap: wrap;
-        padding: 12px 5%;
-        gap: 12px;
+        min-height:auto;
+        flex-wrap:wrap;
+        padding:12px 5%;
+        gap:12px;
     }
 
     .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        gap: 15px;
-        scrollbar-width: none;
+        width:100%;
+        overflow-x:auto;
+        padding-bottom:4px;
+        gap:15px;
+        scrollbar-width:none;
     }
 
-    .nav-links::-webkit-scrollbar { display: none; }
-    .tab-btn { white-space: nowrap; }
+    .nav-links::-webkit-scrollbar {display:none}
+    .tab-btn {white-space:nowrap}
 
     .hero {
-        padding-top: 150px;
-        padding-left: 7%;
-        padding-right: 7%;
-        background-size: cover, cover, 85%;
+        padding-top:150px;
+        padding-left:7%;
+        padding-right:7%;
+        background-size:cover,cover,85%;
     }
 
-    section.content-section { padding: 145px 7% 80px; }
-    .about-grid { grid-template-columns: 1fr; }
-    .staff-grid { grid-template-columns: 1fr; }
-    .stats { column-gap: 25px; }
+    section.content-section {padding:145px 7% 80px}
+    .about-grid {grid-template-columns:1fr}
+    .staff-grid {grid-template-columns:1fr}
+    .stats {column-gap:25px}
 }
 
-@media(max-width: 550px) {
-    .logo-text { font-size: 13px; }
-    .logo-icon { width: 38px; height: 38px; }
-    .hero h1 { letter-spacing: -2px; }
+@media(max-width:550px) {
+    .logo-text {font-size:13px}
+    .logo-icon {width:38px;height:38px}
+    .hero h1 {letter-spacing:-2px}
 
     .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction:column;
+        align-items:stretch;
     }
 
-    .button-primary,
-    .button-secondary { width: 100%; }
+    .button-primary,.button-secondary {width:100%}
 
     .stats {
-        grid-template-columns: 1fr;
-        row-gap: 20px;
+        grid-template-columns:1fr;
+        row-gap:20px;
     }
 
     footer {
-        flex-direction: column;
-        text-align: center;
+        flex-direction:column;
+        text-align:center;
     }
 
-    .timeline { padding-left: 0; }
-    .timeline::before { left: 17px; }
+    .timeline::before {left:17px}
 
     .timeline-item {
-        padding-left: 48px;
-        margin-bottom: 20px;
+        padding-left:48px;
+        margin-bottom:20px;
     }
 
     .timeline-marker {
-        left: 0;
-        width: 36px;
-        height: 36px;
+        left:0;
+        width:36px;height:36px;
     }
 
-    .timeline-card { padding: 22px 20px; }
-
-    .modal-box { padding: 28px 22px; }
-
-    .staff-card-header { padding: 28px 22px; }
+    .timeline-card {padding:22px 20px}
+    .modal-box {padding:28px 22px}
+    .staff-card-header {padding:28px 22px}
 
     .staff-card.open .staff-members {
-        padding: 0 22px 20px;
+        padding:0 22px 20px;
     }
 
     .staff-number {
-        width: 50px;
-        height: 50px;
+        width:50px;height:50px;
     }
 
-    .staff-card h3 { font-size: 16px; }
-    .empty-card .empty-status { padding: 0 22px 25px; }
+    .staff-card h3 {font-size:16px}
+    .empty-status {padding:0 22px 25px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav class="navbar">
+
     <div class="logo" onclick="openTab('home')">
         <img src="logo.png" alt="FiXiK CLXN" class="logo-icon">
         <div class="logo-text">FiXiK WEB</div>
@@ -829,7 +839,10 @@ footer p {
         <button class="tab-btn" data-tab="history" onclick="openTab('history')">Наш путь</button>
         <button class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
         <button class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
+        <button class="tab-btn" onclick="openAccount()">АККАУНТ</button>
+        <button class="settings-button" onclick="toggleSettings()" title="Настройки">⚙</button>
     </div>
+
 </nav>
 
 <main>
@@ -862,12 +875,10 @@ footer p {
                     <h2>FiXiK CLXN</h2>
                     <p>CLAN</p>
                 </div>
-
                 <div class="stat">
                     <h2>MEMPHIS</h2>
                     <p>SERVER</p>
                 </div>
-
                 <div class="stat">
                     <h2>∞</h2>
                     <p>POTENTIAL</p>
@@ -923,7 +934,7 @@ footer p {
     </section>
 </div>
 
-<!-- HISTORY / TIMELINE -->
+<!-- HISTORY -->
 
 <div id="tab-history" class="tab-page">
     <section class="content-section">
@@ -939,19 +950,14 @@ footer p {
 
         <div class="timeline">
 
-            <!-- 01 GREENKILLAZ -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">01</div>
-
                 <div class="timeline-card">
                     <div class="timeline-top">
                         <span class="timeline-badge">FIRST CHAPTER</span>
                         <span class="timeline-server">SVO CLAN • PHOENIX</span>
                     </div>
-
                     <h3>GREENKILLAZ FAMQ</h3>
-
                     <p>
                         Именно с GREENKILLAZ FAMQ началась важная часть нашего
                         игрового пути. Первые серьёзные капты, командный вайб,
@@ -962,19 +968,14 @@ footer p {
                 </div>
             </div>
 
-            <!-- 02 FORBES -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">02</div>
-
                 <div class="timeline-card">
                     <div class="timeline-top">
                         <span class="timeline-badge">NEXT STEP</span>
                         <span class="timeline-server">RONALDO</span>
                     </div>
-
                     <h3>FORBES</h3>
-
                     <p>
                         Следующий этап нашего пути — Forbes.
                         Новый опыт, новые знакомства и возможность
@@ -983,19 +984,14 @@ footer p {
                 </div>
             </div>
 
-            <!-- 03 ZENITH -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">03</div>
-
                 <div class="timeline-card">
                     <div class="timeline-top">
                         <span class="timeline-badge">TEAM BUILDING</span>
                         <span class="timeline-server">MEMPHIS</span>
                     </div>
-
                     <h3>ZENITH</h3>
-
                     <p>
                         В Zenith мы начали наигрывать команду в группах.
                         Постепенно появлялась сыгранность, понимание
@@ -1004,19 +1000,14 @@ footer p {
                 </div>
             </div>
 
-            <!-- 04 SACRED -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">04</div>
-
                 <div class="timeline-card">
                     <div class="timeline-top">
                         <span class="timeline-badge">EXPERIENCE</span>
                         <span class="timeline-server">PORTLAND</span>
                     </div>
-
                     <h3>SACRED</h3>
-
                     <p>
                         Sacred стал ещё одним хорошим этапом.
                         Получили полезный опыт, сыграли с разными
@@ -1025,19 +1016,14 @@ footer p {
                 </div>
             </div>
 
-            <!-- 05 PSYCHOTROPIC -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">05</div>
-
                 <div class="timeline-card">
                     <div class="timeline-top">
                         <span class="timeline-badge">HIGH LEVEL</span>
                         <span class="timeline-server">MEMPHIS</span>
                     </div>
-
                     <h3>PSYCHOTROPIC</h3>
-
                     <p>
                         Один из самых полезных этапов нашего пути.
                         Мы получили очень хороший опыт, играя рядом
@@ -1048,19 +1034,14 @@ footer p {
                 </div>
             </div>
 
-            <!-- 06 ROCKET / GACHIMOV -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">06</div>
-
                 <div class="timeline-card">
                     <div class="timeline-top">
                         <span class="timeline-badge">DIFFERENT PATHS</span>
                         <span class="timeline-server">RONALDO × MEMPHIS</span>
                     </div>
-
                     <h3>ROCKET × GACHIMOV</h3>
-
                     <p>
                         В этот период Саня и Витос играли в Rocket,
                         а Валера в это же время находился в Gachimov.
@@ -1071,19 +1052,14 @@ footer p {
                 </div>
             </div>
 
-            <!-- 07 CURRENT -->
-
             <div class="timeline-item">
                 <div class="timeline-marker">07</div>
-
                 <div class="timeline-card current">
                     <div class="timeline-top">
                         <span class="timeline-badge">CURRENT CHAPTER</span>
                         <span class="timeline-server">MEMPHIS • FIXIK CLXN</span>
                     </div>
-
                     <h3>НОВЫЙ ЭТАП — FiXiK CLXN</h3>
-
                     <p>
                         Сейчас мы продолжаем наигрывать новичков в семьях
                         попроще, чтобы они набирались опыта, привыкали
@@ -1129,8 +1105,6 @@ footer p {
                 </div>
             </div>
 
-            <!-- EMPTY DEPUTY: NO HOVER, NO CLICK -->
-
             <div class="staff-card empty-card">
                 <div class="staff-card-header">
                     <div class="staff-info">
@@ -1141,7 +1115,6 @@ footer p {
                         </div>
                     </div>
                 </div>
-
                 <div class="empty-status">Пока что нету</div>
             </div>
 
@@ -1180,39 +1153,158 @@ footer p {
     <p>© 2026 FiXiK CLXN • Majestic RP • Memphis</p>
 </footer>
 
-<!-- JOIN MODAL -->
+<!-- JOIN APPLICATION -->
 
 <div class="modal-overlay" id="joinModal">
     <div class="modal-box">
 
         <button class="modal-close" onclick="closeModal()">×</button>
 
+        <div class="section-tag">JOIN THE CLAN</div>
         <h3>Вступить в FiXiK</h3>
         <p>Заполни заявку, если хочешь присоединиться к нашему клану.</p>
 
         <form id="applicationForm" onsubmit="submitApplication(event)">
 
             <div class="form-group">
-                <input type="text" id="nickname" placeholder="Твой ник" required>
+                <input type="text" id="nickname" placeholder="Твой игровой ник" maxlength="40" required>
             </div>
 
             <div class="form-group">
-                <input type="number" id="age" placeholder="Возраст" min="14" max="99" required>
+                <input
+                    type="text"
+                    id="age"
+                    placeholder="Возраст"
+                    inputmode="numeric"
+                    pattern="[0-9]{1,2}"
+                    maxlength="2"
+                    required
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                >
             </div>
 
             <div class="form-group">
-                <textarea id="about" placeholder="Расскажи немного о себе" rows="5" required></textarea>
+                <input type="text" id="discordName" placeholder="Твой Discord (например, username)" maxlength="60" required>
+            </div>
+
+            <div class="form-group">
+                <textarea id="about" placeholder="Расскажи немного о себе" rows="5" maxlength="1000" required></textarea>
             </div>
 
             <button type="submit" class="button-primary" style="width:100%;">
-                ОТПРАВИТЬ ЗАЯВКУ
+                ПОДАТЬ ЗАЯВКУ
             </button>
+
+            <div class="form-note">
+                После подготовки заявки откроется ваш Discord.
+                Автоматическая доставка будет подключена через сервер.
+            </div>
 
         </form>
     </div>
 </div>
 
+<!-- ACCOUNT -->
+
+<div class="modal-overlay" id="accountModal">
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeAccount()">×</button>
+
+        <div class="section-tag">FIXIK MEMBER SYSTEM</div>
+        <h3>АККАУНТ</h3>
+
+        <p>
+            Получи доступ к личному кабинету после одобрения
+            заявки администрацией FiXiK CLXN.
+        </p>
+
+        <div class="form-group">
+            <input type="email" placeholder="Твоя электронная почта" disabled>
+        </div>
+
+        <div class="form-group">
+            <input type="password" placeholder="Пароль" disabled>
+        </div>
+
+        <button class="button-primary" style="width:100%;opacity:.55;cursor:not-allowed;" disabled>
+            ВОЙТИ
+        </button>
+
+        <p class="form-note">
+            Регистрация и вход станут доступны после подключения базы данных.
+        </p>
+
+    </div>
+</div>
+
+<!-- ADMIN PANEL PREVIEW -->
+
+<div class="modal-overlay" id="adminModal">
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeAdmin()">×</button>
+
+        <div class="section-tag">CONTROL CENTER</div>
+        <h3>ADMIN PANEL</h3>
+        <p>Предварительный макет панели управления FiXiK WEB.</p>
+
+        <div class="member">Заявки — подключим через Supabase</div>
+        <div class="member">Участники — подключим через Supabase</div>
+        <div class="member">История — подключим через Supabase</div>
+        <div class="member">Цитаты — подключим через Supabase</div>
+        <div class="member">Настройки сайта — подключим через Supabase</div>
+
+        <p class="form-note">
+            Это демонстрационный интерфейс, не настоящая защищённая админ-панель.
+        </p>
+
+    </div>
+</div>
+
+<!-- SETTINGS -->
+
+<div class="settings-panel" id="settingsPanel">
+
+    <h3>НАСТРОЙКИ</h3>
+
+    <p style="color:#9293a0;font-size:12px;">
+        Выбери основной цвет сайта
+    </p>
+
+    <div class="color-options">
+
+        <button class="color-option" style="background:#8b5cf6" onclick="setTheme('#8b5cf6','#b49aff')" title="Фиолетовый"></button>
+
+        <button class="color-option" style="background:#3b82f6" onclick="setTheme('#3b82f6','#93c5fd')" title="Синий"></button>
+
+        <button class="color-option" style="background:#ef4444" onclick="setTheme('#ef4444','#fca5a5')" title="Красный"></button>
+
+        <button class="color-option" style="background:#10b981" onclick="setTheme('#10b981','#6ee7b7')" title="Зелёный"></button>
+
+        <button class="color-option" style="background:#ec4899" onclick="setTheme('#ec4899','#f9a8d4')" title="Розовый"></button>
+
+        <button class="color-option" style="background:#f59e0b" onclick="setTheme('#f59e0b','#fcd34d')" title="Оранжевый"></button>
+
+        <button class="color-option" style="background:#06b6d4" onclick="setTheme('#06b6d4','#67e8f9')" title="Бирюзовый"></button>
+
+        <button class="color-option" style="background:#ffffff" onclick="setTheme('#ffffff','#dddddd')" title="Белый"></button>
+
+    </div>
+
+    <p class="settings-caption">
+        Выбранный цвет сохраняется в браузере.
+    </p>
+
+    <button class="settings-reset" onclick="resetTheme()">
+        СБРОСИТЬ ЦВЕТ
+    </button>
+
+</div>
+
 <script>
+
+/* NAVIGATION */
 
 function openTab(tabName) {
     document.querySelectorAll('.tab-page').forEach(function(page) {
@@ -1225,7 +1317,7 @@ function openTab(tabName) {
         selectedPage.classList.add('active');
     }
 
-    document.querySelectorAll('.tab-btn').forEach(function(button) {
+    document.querySelectorAll('.tab-btn[data-tab]').forEach(function(button) {
         button.classList.remove('active');
 
         if (button.dataset.tab === tabName) {
@@ -1233,8 +1325,10 @@ function openTab(tabName) {
         }
     });
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top:0,behavior:'smooth'});
 }
+
+/* STAFF */
 
 function toggleStaff(button) {
     const card = button.closest('.staff-card');
@@ -1252,62 +1346,192 @@ function toggleStaff(button) {
     }
 }
 
-function openModal() {
-    const modal = document.getElementById('joinModal');
+/* JOIN MODAL */
 
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+function openModal() {
+    document.getElementById('joinModal').classList.add('active');
+    document.body.style.overflow='hidden';
 }
 
 function closeModal() {
-    const modal = document.getElementById('joinModal');
+    document.getElementById('joinModal').classList.remove('active');
+    document.body.style.overflow='';
+}
 
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+/* ACCOUNT */
+
+function openAccount() {
+    document.getElementById('accountModal').classList.add('active');
+    document.body.style.overflow='hidden';
+}
+
+function closeAccount() {
+    document.getElementById('accountModal').classList.remove('active');
+    document.body.style.overflow='';
+}
+
+/* ADMIN PREVIEW */
+
+function closeAdmin() {
+    document.getElementById('adminModal').classList.remove('active');
+    document.body.style.overflow='';
+}
+
+/* SETTINGS */
+
+function toggleSettings() {
+    document.getElementById('settingsPanel').classList.toggle('active');
+}
+
+function setTheme(primary,light) {
+    document.documentElement.style.setProperty('--purple',primary);
+    document.documentElement.style.setProperty('--purple-light',light);
+
+    localStorage.setItem('fixikTheme',JSON.stringify({
+        primary:primary,
+        light:light
+    }));
+}
+
+function resetTheme() {
+    localStorage.removeItem('fixikTheme');
+    setTheme('#8b5cf6','#b49aff');
+}
+
+function loadTheme() {
+    const saved=localStorage.getItem('fixikTheme');
+
+    if (!saved) return;
+
+    try {
+        const theme=JSON.parse(saved);
+
+        if (theme.primary && theme.light) {
+            setTheme(theme.primary,theme.light);
+        }
+    } catch(error) {
+        console.warn('Не удалось загрузить тему');
     }
 }
 
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('joinModal');
-
-    if (modal && event.target === modal) {
-        closeModal();
-    }
-});
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-});
+/* APPLICATION */
 
 function submitApplication(event) {
     event.preventDefault();
 
-    const nickname = document.getElementById('nickname').value.trim();
-    const age = document.getElementById('age').value.trim();
-    const about = document.getElementById('about').value.trim();
+    const nickname=document.getElementById('nickname').value.trim();
+    const age=document.getElementById('age').value.trim();
+    const discordName=document.getElementById('discordName').value.trim();
+    const about=document.getElementById('about').value.trim();
 
-    if (!nickname || !age || !about) {
+    if (!nickname || !age || !discordName || !about) {
         alert('Заполни все поля!');
         return;
     }
 
-    alert(
-        'Заявка принята!\n\n' +
-        'Ник: ' + nickname +
-        '\nВозраст: ' + age +
-        '\n\nТеперь ожидай связи от состава FiXiK CLXN.'
+    if (!/^\d{1,2}$/.test(age) || Number(age)<14 || Number(age)>99) {
+        alert('Возраст должен быть числом от 14 до 99!');
+        return;
+    }
+
+    const application={
+        nickname:nickname,
+        age:Number(age),
+        discord:discordName,
+        about:about,
+        date:new Date().toLocaleString('ru-RU'),
+        status:'Ожидает рассмотрения'
+    };
+
+    const applications=JSON.parse(
+        localStorage.getItem('fixikApplications') || '[]'
     );
+
+    applications.push(application);
+
+    localStorage.setItem(
+        'fixikApplications',
+        JSON.stringify(applications)
+    );
+
+    const discordMessage=
+        'НОВАЯ ЗАЯВКА — FiXiK CLXN\n\n'+
+        'Игровой ник: '+nickname+'\n'+
+        'Возраст: '+age+'\n'+
+        'Discord: '+discordName+'\n'+
+        'О себе: '+about+'\n'+
+        'Дата: '+application.date;
+
+    if (navigator.clipboard && window.isSecureContext) {
+
+        navigator.clipboard.writeText(discordMessage)
+        .then(function() {
+
+            alert(
+                'Заявка подготовлена!\n\n'+
+                'Текст скопирован. Теперь вставь его в Discord.'
+            );
+
+            window.open(
+                'https://discord.gg/qPfAcGb9Z4',
+                '_blank'
+            );
+
+        })
+        .catch(function() {
+            alert('Не удалось скопировать заявку.');
+        });
+
+    } else {
+
+        alert(
+            'Заявка сохранена локально в браузере.\n\n'+
+            'Автоматическая отправка будет доступна после подключения сервера.'
+        );
+
+    }
 
     document.getElementById('applicationForm').reset();
     closeModal();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+/* CLOSE MODALS */
+
+document.addEventListener('click',function(event) {
+
+    const join=document.getElementById('joinModal');
+    const account=document.getElementById('accountModal');
+    const admin=document.getElementById('adminModal');
+    const settings=document.getElementById('settingsPanel');
+    const settingsButton=document.querySelector('.settings-button');
+
+    if (event.target===join) closeModal();
+    if (event.target===account) closeAccount();
+    if (event.target===admin) closeAdmin();
+
+    if (
+        settings.classList.contains('active') &&
+        !settings.contains(event.target) &&
+        !settingsButton.contains(event.target)
+    ) {
+        settings.classList.remove('active');
+    }
+
+});
+
+document.addEventListener('keydown',function(event) {
+    if (event.key==='Escape') {
+        closeModal();
+        closeAccount();
+        closeAdmin();
+        document.getElementById('settingsPanel').classList.remove('active');
+    }
+});
+
+/* START */
+
+document.addEventListener('DOMContentLoaded',function() {
+    loadTheme();
     openTab('home');
 });
 
